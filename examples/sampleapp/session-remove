@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+if command -v docker >/dev/null 2>&1; then
+  docker compose -p "${SESSION_REPO_NAME}_${SESSION_INDEX}" down --remove-orphans || true
+fi

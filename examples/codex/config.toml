@@ -1,0 +1,8 @@
+[features]
+codex_hooks = true
+
+[[hooks.Stop]]
+[[hooks.Stop.hooks]]
+type = "command"
+command = "sessions agent set codex --state ready --message 'Codex finished'"
+timeout = 10

@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+cat > .env.local <<EOF
+PORT=$((3000 + SESSION_INDEX))
+DATABASE_URL=postgres://localhost/sampleapp_${SESSION_INDEX}
+COMPOSE_PROJECT_NAME=${SESSION_REPO_NAME}_${SESSION_INDEX}
+EOF
+
+if [ -f package.json ]; then
+  npm install
+fi
